@@ -1,6 +1,5 @@
 {
   "sdk": {
-    "rollForward": "latestMajor",
-    "version": "8.0.100"
+    "version": "8.0.410"
   }
 }
