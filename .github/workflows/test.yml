@@ -1,0 +1,29 @@
+name: Test
+
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup .NET SDK from global.json
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: ./src/global.json
+
+      - name: Restore dependencies
+        run: dotnet restore ./src/MySln.sln
+
+      - name: Build
+        run: dotnet build ./src/MySln.sln --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test ./src/MySln.sln --no-build --verbosity normal
