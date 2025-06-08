@@ -26,4 +26,4 @@ jobs:
         run: dotnet build ./src/MySln.sln --configuration Release --no-restore
 
       - name: Test
-        run: dotnet test ./src/MyLib.UnitTests/MyLib.UnitTests.csproj --verbosity normal
+        run: dotnet test ./src/MyLib.UnitTests/MyLib.UnitTests.csproj --no-build --verbosity normal
